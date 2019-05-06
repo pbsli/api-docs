@@ -1,0 +1,247 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></head><body><h1 id="survey-api-error-codes">Survey API Error Codes</h1>
+
+<h4 id="updated-on-february-20-2013">Updated on February 20, 2013</h4>
+
+<p>When a response to an API request returns an HTTP status code other than 200, it will be accompanied by a special error response format:</p>
+
+<h4 id="example-response">Example Response</h4>
+
+<pre><code>{
+    errorCode: "BadParameter",
+    message: "A URL or JSON parameter you supplied was improperly formatted or identifies an invalid resource."
+}
+</code></pre>
+
+<p>The above error response would accompany an HTTP status code of 400, indicating that a parameter provided in the request was invalid.</p>
+
+<p>The following table lists the error codes that may be returned by the system:</p>
+
+<table class="survey-api-error-codes">
+  <thead>
+    <tr>
+      <th>HTTP Status Code</th>
+      <th>Error Code</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>403</td>
+      <td>AccessDenied</td>
+      <td>Your request specified a respondent, survey or response (or some combination thereof) that you are not permitted to access.</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>AccountProblem</td>
+      <td>There is a problem with your API account that prevents the operation from completing successfully. Please contact support.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>BadDigest</td>
+      <td>The Content-MD5 you specified does not match what we received.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>BadParameter</td>
+      <td>A URL or JSON parameter you supplied was improperly formatted or identifies an invalid resource.</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>EndpointNotFound</td>
+      <td>There is no API endpoint defined for the URL you requested.</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>InternalError</td>
+      <td>We encountered an internal error. Please try again.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>InvalidAcceptList</td>
+      <td>The server does not know how to respond in any of the formats specified in your request's Accept header.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>InvalidContentType</td>
+      <td>You specified a content type that is not supported.</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>InvalidPublicKey</td>
+      <td>The public key token provided does not exist in our records.</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>InvalidSignatureIdentifier</td>
+      <td>The Authorization signature identifier you provided is not known by the system.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>MalformedHeaderValue</td>
+      <td>An HTTP header value was malformed.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>MalformedJson</td>
+      <td>The JSON document submitted with your request was malformed.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>MissingHeader</td>
+      <td>The request was missing a required HTTP header. Please review the documentation for a list headers required for API requests.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>MissingRequestBody</td>
+      <td>The request used an HTTP verb that requires a content body, but no content body was sent.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>MissingSecurityHeader</td>
+      <td>Your request was missing a required header.</td>
+    </tr>
+    <tr>
+      <td>400</td>
+      <td>RequestTimeTooSkewed</td>
+      <td>The difference between the request time and the server's time is too large.</td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td>ServiceNotEnabled</td>
+      <td>The API service is not currently accepting requests.</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>SignatureDoesNotMatch</td>
+      <td>The request signature we calculated does not match the signature you provided.</td>
+    </tr>
+    <tr>
+      <td>503</td>
+      <td>SlowDown</td>
+      <td>Please reduce your request rate.</td>
+    </tr>
+  </tbody>
+</table>
+</body>
